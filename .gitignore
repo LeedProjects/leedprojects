@@ -1,0 +1,4 @@
+db.env
+.vscode/
+.idea/
+log/*.log
