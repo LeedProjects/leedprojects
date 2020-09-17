@@ -18,10 +18,6 @@ import (
 	"github.com/urfave/cli/v2"
 )
 
-func fromEnv(variable string) string {
-	return os.Getenv(variable)
-}
-
 // ModelStruct for generating model file
 type ModelStruct struct {
 	ModelName string
@@ -30,7 +26,7 @@ type ModelStruct struct {
 func main() {
 	_ = godotenv.Load("db.env")
 
-	connectionString := fmt.Sprintf("postgres://%s:%s@%s:%s/%s?sslmode=%s", fromEnv("DB_USER"), fromEnv("DB_PASSWORD"), fromEnv("DB_HOST"), fromEnv("DB_PORT"), fromEnv("DB_DATABASE"), fromEnv("DB_SSL"))
+	connectionString := fmt.Sprintf("postgres://%s:%s@%s:%s/%s?sslmode=%s", os.Getenv("DB_USER"), os.Getenv("DB_PASSWORD"), os.Getenv("DB_HOST"), os.Getenv("DB_PORT"), os.Getenv("DB_DATABASE"), os.Getenv("DB_SSL"))
 	db, err := sql.Open("postgres", connectionString)
 	defer db.Close()
 	m, err := migrate.New(
