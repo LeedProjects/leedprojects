@@ -8,7 +8,7 @@ module.exports = {
     'airbnb',
     'plugin:jsx-a11y/recommended',
     'prettier',
-    'prettier/react'
+    'prettier/react',
   ],
   globals: {
     Atomics: 'readonly',
@@ -21,19 +21,16 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module',
   },
-  plugins: [
-    'react',
-    'jsx-a11y',
-    'prettier'
-  ],
+  plugins: ['react', 'jsx-a11y', 'prettier'],
   rules: {
-    'semi': 1,
-    'react/jsx-filename-extension': [1, { 'extensions': ['.js', '.jsx'] }],
+    semi: 1,
+    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     'prettier/prettier': [
-      'error', {
-        'semi': true,
-        'singleQuote': true,
-      }
-    ]
+      'error',
+      {
+        semi: true,
+        singleQuote: true,
+      },
+    ],
   },
 };
